@@ -11,16 +11,12 @@ import matplotlib.pyplot as plt
 import argparse
 import os
 
+# ============== 取得腳本所在目錄 ==============
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # ============== 設定區 ==============
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# MODEL_PATH = "./mnist_cnn.pth"
-
-# 取得 predict.py 所在資料夾
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# 模型位於更上層的 ComputerVisionCourse202512 資料夾
-MODEL_PATH = os.path.join(BASE_DIR, "..", "..", "mnist_cnn.pth")
-MODEL_PATH = os.path.abspath(MODEL_PATH)
+MODEL_PATH = os.path.join(SCRIPT_DIR, "..", "models", "mnist_cnn.pth")
 
 
 # ============== 模型定義 (與訓練相同) ==============
